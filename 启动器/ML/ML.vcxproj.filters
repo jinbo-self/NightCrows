@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="键鼠类">
+      <UniqueIdentifier>{c9b3359d-f85b-45da-a267-97d64e7f694a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="识图类">
+      <UniqueIdentifier>{0c4e9789-6738-465c-bcbf-7dec9d478273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="识字类">
+      <UniqueIdentifier>{1a80fb68-0cbb-432f-8bed-dc47e70ffd6f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ML.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainDialogWnd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="键鼠类.cpp">
+      <Filter>键鼠类</Filter>
+    </ClCompile>
+    <ClCompile Include="识图类.cpp">
+      <Filter>识图类</Filter>
+    </ClCompile>
+    <ClCompile Include="识字类.cpp">
+      <Filter>识字类</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ML.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="res\ML.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ML.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainDialogWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="键鼠类.h">
+      <Filter>键鼠类</Filter>
+    </ClInclude>
+    <ClInclude Include="识图类.h">
+      <Filter>识图类</Filter>
+    </ClInclude>
+    <ClInclude Include="识字类.h">
+      <Filter>识字类</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ML.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
