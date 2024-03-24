@@ -1,1 +1,28 @@
-﻿
+﻿  pch.cpp
+  CMainDialogWnd.cpp
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
+  参见“CDialogEx”的声明
+  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,18):
+  参见“CMainDialogWnd”的声明
+  
+  ML.cpp
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
+  参见“CDialogEx”的声明
+  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,18):
+  参见“CMainDialogWnd”的声明
+  
+  识图类.cpp
+  识字类.cpp
+  键鼠类.cpp
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\键鼠类.cpp(35,18): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  (编译源文件“/键鼠类.cpp”)
+  
+  正在生成代码...
+    正在创建库 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\x64\Debug\ML.lib 和对象 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\x64\Debug\ML.exp
+  ML.vcxproj -> C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\x64\Debug\ML.dll
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
