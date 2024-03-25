@@ -162,6 +162,78 @@ bool 识字类::查找节电模式()
     }
     return false;
 }
+bool 识字类::查找复活()
+{
+    std::wstring 字符 = 获取字符(复活);
+    if (字符.find(L"复活") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找小地图_阿维利乌斯城堡()
+{
+    std::wstring 字符 = 获取字符(小地图_阿维利乌斯城堡);
+    if (字符.find(L"阿维利乌斯城堡") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找小地图_杂货()
+{
+    std::wstring 字符 = 获取字符(小地图_杂货);
+    if (字符.find(L"杂货") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找背包()
+{
+    std::wstring 字符 = 获取字符(背包);
+    if (字符.find(L"背包") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找背包技能书说明()
+{
+    std::wstring 字符 = 获取字符(背包技能书说明);
+    if (字符.find(L"技能书") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找主动技能()
+{
+    std::wstring 字符 = 获取字符(主动技能);
+    if (字符.find(L"主动技能") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找技能排序自动释放()
+{
+    std::wstring 字符 = 获取字符(技能排序自动释放);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找猎人_决心技能自动开启()
+{
+    std::wstring 字符 = 获取字符(猎人_决心技能自动开启);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找死亡骑士()
+{
+    std::wstring 字符 = 获取字符(死亡骑士);
+    if (字符.find(L"死亡骑士") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
 IDispatch* 识字类::COM初始化()
 { 
     pDispatch = NULL;

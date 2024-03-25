@@ -7,6 +7,6 @@ public:
 public:
 	void 移动鼠标(int x, int y);
 public:
-	void 按下按键(WORD key,int delay=0);
+	void 按下按键(WORD key,int delay=1000);
 };
 

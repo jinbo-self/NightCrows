@@ -43,4 +43,11 @@ public:
 
 		return CDialogEx::PreTranslateMessage(pMsg);
 	}
+	// 左上角坐标x
+	CEdit tb_recValuex1;
+	CEdit tb_recValuey1;
+	CEdit tb_recValuex2;
+	CEdit tb_recValuey2;
+	CEdit 字符输出框;
+	afx_msg void OnBnClickedButton4();
 };

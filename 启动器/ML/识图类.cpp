@@ -18,7 +18,6 @@ std::array<BYTE, 3> 识图类::识别颜色(识图坐标 坐标)
     // 获取指定点的颜色
     COLORREF color = GetPixel(hDCScreen, 坐标.x, 坐标.y);
 
-    // 释放设备上下文
     std::array<BYTE, 3> colorArray;
     ColorRefToArray(color, colorArray);
     return colorArray;
@@ -59,5 +58,48 @@ bool 识图类::查找跳过()
 
 bool 识图类::查找装备穿戴()
 {
+    return false;
+}
+//生命力药水 = { 909,713,{159,18,13} };
+bool 识图类::生命力药水用完()
+{
+    std::array<BYTE, 3> 三色 = 识别颜色(生命力药水);
+    if (三色[0] <100) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color)
+{
+    // 创建一个与屏幕设备上下文兼容的内存设备上下文
+    HDC hMemoryDC = CreateCompatibleDC(hDCScreen);
+    // 创建一个位图
+    HBITMAP hBitmap = CreateCompatibleBitmap(hDCScreen, width, height);
+    // 将位图选入内存设备上下文中
+    SelectObject(hMemoryDC, hBitmap);
+    // 将屏幕内容复制到内存设备上下文中
+    BitBlt(hMemoryDC, 0, 0, width, height, hDCScreen, x, y, SRCCOPY);
+    // 遍历区域内的每个像素,加快效率，每4个检查一次
+    for (int i = 0; i < width; ) {
+        for (int j = 0; j < height; ) {
+            // 获取像素颜色
+            COLORREF pixelColor = GetPixel(hMemoryDC, i, j);
+            // 判断颜色是否匹配
+            std::array<BYTE, 3> colorArray;
+            ColorRefToArray(pixelColor, colorArray);
+            if (colorArray[0] > color[0] || colorArray[1] > color[1] || colorArray[2] > color[2]) {
+                // 清理资源
+                DeleteObject(hBitmap);
+                DeleteDC(hMemoryDC);
+                return true;
+            }
+            j = j + 4;
+        }
+        i = i + 4;
+    }
+    // 清理资源
+    DeleteObject(hBitmap);
+    DeleteDC(hMemoryDC);
     return false;
 }
