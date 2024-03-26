@@ -46,3 +46,19 @@ void 键鼠类::按下按键(WORD key,int delay)
 	Input.ki.dwFlags = KEYEVENTF_KEYUP; // 按键释放
 	SendInput(1, &Input, sizeof(INPUT));
 }
+
+void 键鼠类::按下鼠标左键()
+{
+	INPUT Input = { 0 };
+	Input.type = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+	SendInput(1, &Input, sizeof(INPUT));
+}
+
+void 键鼠类::弹起鼠标左键()
+{
+	INPUT Input = { 0 };
+	Input.type = INPUT_MOUSE;
+	Input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
+	SendInput(1, &Input, sizeof(INPUT));
+}

@@ -50,4 +50,5 @@ public:
 	CEdit tb_recValuey2;
 	CEdit 字符输出框;
 	afx_msg void OnBnClickedButton4();
+	CEdit 相似度;
 };

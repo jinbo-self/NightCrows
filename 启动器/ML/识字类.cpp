@@ -27,7 +27,7 @@ HMODULE 识字类::LoadDll()
 }
 
 
-std::wstring 识字类::获取字符(识字坐标 坐标)
+std::wstring 识字类::获取字符(识字坐标 坐标, DOUBLE sim)
 {
 
     // 准备调用OcrAuto
@@ -47,7 +47,7 @@ std::wstring 识字类::获取字符(识字坐标 坐标)
     varg[1].lVal = 坐标.y2;
     VariantInit(&varg[0]);
     varg[0].vt = VT_R8;
-    varg[0].dblVal = 0.5;
+    varg[0].dblVal = sim;
 
     dispparams.rgvarg = varg;
     dispparams.cArgs = 5;
@@ -85,7 +85,7 @@ std::wstring 识字类::获取字符(识字坐标 坐标)
 bool 识字类::查找跳过()
 {
     std::wstring 字符 = 获取字符(跳过);
-    if (字符.find(L"跳过")!=std::wstring::npos) {
+    if (字符.find(L"跳过")!=std::wstring::npos || 字符.size() == 2) {
         return true;
     }
     return false;
@@ -108,7 +108,7 @@ bool 识字类::查找穿戴()
 }
 bool 识字类::查找装备穿戴()
 {
-    std::wstring 字符 = 获取字符(装备穿戴);
+    std::wstring 字符 = 获取字符(装备穿戴,0.1);
     if (字符.find(L"穿戴") != std::wstring::npos) {
         return true;
     }
@@ -230,6 +230,60 @@ bool 识字类::查找死亡骑士()
 {
     std::wstring 字符 = 获取字符(死亡骑士);
     if (字符.find(L"死亡骑士") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+int 识字类::查找快捷栏药品数量()
+{
+    std::wstring 字符 = 获取字符(快捷栏药品数量,1);
+    try
+    {
+        int number = std::stoi(字符); // 将wstring转换为int
+        return number;
+    }
+    catch (const std::exception&)
+    {
+        return 9999;
+    }
+    return 9999;
+}
+bool 识字类::查找大地图_世界()
+{
+    std::wstring 字符 = 获取字符(大地图_世界);
+    if (字符.find(L"世界") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找杂货商人()
+{
+    std::wstring 字符 = 获取字符(杂货商人);
+    if (字符.find(L"杂货商人") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找结束游戏()
+{
+    std::wstring 字符 = 获取字符(结束游戏);
+    if (字符.find(L"结束游戏") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找职业()
+{
+    std::wstring 字符 = 获取字符(职业);
+    if (字符.find(L"职业") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找接受任务()
+{
+    std::wstring 字符 = 获取字符(接受任务);
+    if (字符.find(L"接受") != std::wstring::npos) {
         return true;
     }
     return false;

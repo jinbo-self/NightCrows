@@ -70,6 +70,22 @@ bool 识图类::生命力药水用完()
     return false;
 }
 
+bool 识图类::查找大地图据点()
+{
+    int dis = 20;
+    std::array<BYTE, 3> Auto1 = 识别颜色(据点1);
+    std::array<BYTE, 3> Auto2 = 识别颜色(据点2);
+    if ((Auto1[0] > 据点1.颜色[0]- dis && Auto1[0] < 据点1.颜色[0] + dis
+        && Auto1[1] > 据点1.颜色[1]- dis && Auto1[1] < 据点1.颜色[1] + dis
+        && Auto1[2] > 据点1.颜色[2]- dis && Auto1[2] < 据点1.颜色[2]+ dis)
+        && (Auto2[0] > 据点2.颜色[0]- dis && Auto2[0] < 据点2.颜色[0]+ dis
+            && Auto2[1] > 据点2.颜色[1]- dis && Auto2[1] < 据点2.颜色[1]+ dis
+            && Auto2[2] > 据点2.颜色[2]-dis && Auto2[2] < 据点2.颜色[2]+dis)) {
+        return true;
+    }
+    return false;
+}
+
 bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color)
 {
     // 创建一个与屏幕设备上下文兼容的内存设备上下文

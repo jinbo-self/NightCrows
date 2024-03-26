@@ -18,6 +18,7 @@ UINT MyLoopProc(LPVOID pParam);
 void 穿戴装备(识字类 识字,键鼠类 键鼠,识图类 识图);
 void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 
 CMainDialogWnd::CMainDialogWnd(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG1, pParent)
@@ -37,6 +38,7 @@ void CMainDialogWnd::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, tb_recx2, tb_recValuex2);
     DDX_Control(pDX, tb_recy2, tb_recValuey2);
     DDX_Control(pDX, IDC_EDIT5, 字符输出框);
+    DDX_Control(pDX, IDC_EDIT6, 相似度);
 }
 
 
@@ -84,35 +86,26 @@ UINT MyLoopProc(LPVOID pParam)
     识图.初始化();
     int index = 0;
     int virtualKeys[4] = { 'W', 'A', 'S', 'D' };
- 
     while (true) {
         Sleep(10);
         
         if (GetAsyncKeyState(VK_END)& 0x8000) {
             break;
         }
-        if ((识图.isQuest() || 识图.isAuto()))
+        
+        if (识图.isAuto() || 识图.isQuest())
         {
-            //if (识图.生命力药水用完())
-            //{
-            //    if (识字.查找小地图_阿维利乌斯城堡())
-            //    {
-            //        键鼠.移动鼠标(249, 91);
-            //        键鼠.点击鼠标左键();
-            //        Sleep(1000);
-            //        键鼠.移动鼠标((识字.小地图_杂货.x1 + 识字.小地图_杂货.x2) / 2, (识字.小地图_杂货.y1 + 识字.小地图_杂货.y2) / 2);
-            //        键鼠.点击鼠标左键();
-            //    }
-            //    else
-            //    {
-            //        键鼠.按下按键('M');//打开地图传送回去买药
-            //        键鼠.移动鼠标(1056, 198);
+            if (识字.查找装备穿戴()) {
+                键鼠.移动鼠标((识字.装备穿戴.x1 + 识字.装备穿戴.x2) / 2, (识字.装备穿戴.y1 + 识字.装备穿戴.y2) / 2);
+                Sleep(500);
+                键鼠.点击鼠标左键();
 
-            //    }
-
-
-            //}
-           
+            }
+            if (识字.查找接受任务())
+            {
+                键鼠.移动鼠标((识字.接受任务.x1 + 识字.接受任务.x2) / 2, (识字.接受任务.y1 + 识字.接受任务.y2) / 2);
+                键鼠.点击鼠标左键();
+            }
         }
         if (识图.isQuest()) {
             std::array<BYTE, 3> 残血 = 识图.识别颜色({ 109,712 });
@@ -120,7 +113,7 @@ UINT MyLoopProc(LPVOID pParam)
             {
                 if (!识字.查找死亡骑士())
                 {
-                    //绕圈打法回血 ,死亡骑士直接锁定,还是别走完浪费输出时间了
+                    //绕圈打法回血 ,死亡骑士直接锁定,还是别走位浪费输出时间了
                     键鼠.按下按键(virtualKeys[index % 4], 5000);
                     index++;
                 }
@@ -128,18 +121,23 @@ UINT MyLoopProc(LPVOID pParam)
             }
             continue;
         }
+        
         if (识图.isQuest() && 识图.isAuto())
         {
             OutputDebugStringA("错误识别\n");
             continue;
         }
         if (识图.isAuto()) {
+            
             std::array<BYTE, 3> 残血 = 识图.识别颜色({ 142,709 });
             if (残血[0] < 100)  //血条掉到一半以下
             {
                 //绕圈打法回血
                 OutputDebugString(L"回血\n");
                 while (识图.识别颜色({ 188,711 })[0] < 100) {
+                    if (GetAsyncKeyState(VK_END) & 0x8000) {
+                        break;
+                    }
                     Sleep(1000);
                 }
 
@@ -154,13 +152,16 @@ UINT MyLoopProc(LPVOID pParam)
                 键鼠.点击鼠标左键();
                 
             }
+            
+            continue;
         }
         else
         {
             if (识字.查找跳过()) {
                 键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
                 键鼠.点击鼠标左键();
-
+                Sleep(500);
+                键鼠.移动鼠标(614,352);
             }
 
             /*滑翔翼，坐骑穿戴*/
@@ -169,15 +170,6 @@ UINT MyLoopProc(LPVOID pParam)
                 键鼠.点击鼠标左键();
                 Sleep(1000);
                 键鼠.按下按键(VK_ESCAPE);
-            }
-            if (识图.查找装备穿戴()) {
-                键鼠.移动鼠标((识字.装备穿戴.x1 + 识字.装备穿戴.x2) / 2, (识字.装备穿戴.y1 + 识字.装备穿戴.y2) / 2);
-                键鼠.点击鼠标左键();
-            }
-            if (识字.查找装备穿戴()) {
-                键鼠.移动鼠标((识字.装备穿戴.x1 + 识字.装备穿戴.x2) / 2, (识字.装备穿戴.y1 + 识字.装备穿戴.y2) / 2);
-                键鼠.点击鼠标左键();
-
             }
             if (识字.查找武器外形穿戴()) {
                 键鼠.移动鼠标((识字.武器外形穿戴.x1 + 识字.武器外形穿戴.x2) / 2, (识字.武器外形穿戴.y1 + 识字.武器外形穿戴.y2) / 2);
@@ -217,11 +209,33 @@ UINT MyLoopProc(LPVOID pParam)
                 if (!(识图.isQuest() || 识图.isAuto())) {
                     键鼠.按下按键(VK_ESCAPE);
                 }
+                Sleep(1000);
                 穿戴装备(识字, 键鼠, 识图);
+                Sleep(1000);
                 学习和摆放技能(识字, 键鼠, 识图);
+                Sleep(1000);
                 嗑状态药(识字, 键鼠, 识图);
+                Sleep(1000);
+                买药(识字, 键鼠, 识图);//噶了再买药吧，唉
+                
             }
-
+            if (识字.查找结束游戏())
+            {
+                键鼠.按下按键(VK_ESCAPE);
+            }
+            if (识字.查找职业())
+            {
+                Sleep(1000);
+                键鼠.移动鼠标(143,183);
+                键鼠.点击鼠标左键();
+                Sleep(1000);
+                键鼠.移动鼠标(110, 716);
+                键鼠.点击鼠标左键();
+                Sleep(1000);
+                键鼠.按下按键('Y');
+                Sleep(1000);
+                键鼠.按下按键(VK_ESCAPE);
+            }
         }
         
 
@@ -242,7 +256,7 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     Sleep(1000);
     键鼠.移动鼠标(1247, 210); //装备栏
     键鼠.点击鼠标左键();
-    Sleep(100);
+    Sleep(1000);
     键鼠.移动鼠标(1188, 636);//整理背包
     键鼠.点击鼠标左键();
     Sleep(1000);
@@ -251,8 +265,14 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 背包装备x[4] = {1017,1069,1127,1178}; //直接记录一行的位置
     while (识字.查找背包() && 识图.识别颜色(背包E起始)[0]>190)
     {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
         for (int index = 0; index < 4; index++)
         {
+            if (GetAsyncKeyState(VK_END) & 0x8000) {
+                return;
+            }
             int 背包x = 背包装备x[index];
             if (识图.识别颜色({ 背包E起始.x+ index*54,137 })[0] > 190)
             {
@@ -276,10 +296,16 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 装备数量 = 0;
     while (识字.查找背包())
     {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
+            if (GetAsyncKeyState(VK_END) & 0x8000) {
+                return;
+            }
             int 背包x = 背包起始.x + i * 54;
             std::array<BYTE, 3> 检测色块 = { 60,60,60 };
             if (!识图.检查范围内颜色(背包x, 背包y, 25, 25, 检测色块))
@@ -302,6 +328,9 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     背包起始 = { 1019,155 };//25*25
     while (装备数量 > -1)
     {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
         int 行号 = 装备数量 / 4;//13/4=3...1  12/4=3...0
         int 列号 = 装备数量 % 4;
         识图坐标 坐标 = {背包起始.x + 列号 *54,背包起始.y + 行号*54 };
@@ -339,10 +368,16 @@ void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     //查找背包,学习技能
     while (识字.查找背包())
     {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
+            if (GetAsyncKeyState(VK_END) & 0x8000) {
+                return;
+            }
             int 背包x = 背包起始.x + i * 54;
             std::array<BYTE, 3> 检测色块 = { 60,60,60 };
             if (!识图.检查范围内颜色(背包x, 背包y, 25, 25, 检测色块))
@@ -476,10 +511,16 @@ void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 物品数量 = 0;
     while (识字.查找背包())
     {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
+            if (GetAsyncKeyState(VK_END) & 0x8000) {
+                return;
+            }
             int 背包x = 背包起始.x + i * 54;
             std::array<BYTE, 3> 检测色块 = { 60,60,60 };
             //没检测到就是空的背包栏
@@ -511,6 +552,61 @@ void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 }
 
+void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
+{
+    //去地图杂货店
+    if (!识字.查找大地图_世界())
+    {
+        键鼠.按下按键('M');//打开地图传送回去买药
+    }
+    while (!识图.查找大地图据点() && 识字.查找大地图_世界())
+    {
+        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            return;
+        }
+        键鼠.移动鼠标(1051, 199);
+        键鼠.按下鼠标左键();
+        Sleep(1000);
+        键鼠.移动鼠标(1051, 689);
+        Sleep(1000);
+        键鼠.弹起鼠标左键();
+        Sleep(1000);
+    }
+    if (识图.查找大地图据点())
+    {
+        键鼠.移动鼠标(1051, 199);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+
+        键鼠.移动鼠标(144, 171);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+    }
+
+    //购买
+    //先购买70%瓶药水
+    DWORD startTime = GetTickCount64();
+    while (!识字.查找杂货商人()) {
+        if (GetAsyncKeyState(VK_END) & 0x8000 || GetTickCount64() - startTime > 60000) {
+            return;
+        }
+        Sleep(100);
+    }
+    Sleep(2000);
+    键鼠.移动鼠标(256,134);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(727, 403);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.按下按键(VK_ESCAPE);
+    //再购买
+
+}
+
 void CMainDialogWnd::OnBnClickedButton2()
 {
     // TODO: 在此添加控件通知处理程序代码
@@ -531,18 +627,21 @@ void CMainDialogWnd::OnBnClickedButton3()
     CString stry1;
     CString strx2;
     CString stry2;
+    CString sim;
     UpdateData(TRUE); // 将数据从控件同步到变量
     tb_recValuex1.GetWindowText(strx1);
     tb_recValuey1.GetWindowText(stry1);
     tb_recValuex2.GetWindowText(strx2);
     tb_recValuey2.GetWindowText(stry2);
+    相似度.GetWindowText(sim);
 
+    double siml = _tstof(sim);
     int nx1 = _ttoi(strx1);
     int ny1 = _ttoi(stry1);
     int nx2 = _ttoi(strx2);
     int ny2 = _ttoi(stry2);
 
-    std::wstring output = 识字.获取字符({ nx1 ,ny1 ,nx2 ,ny2 });
+    std::wstring output = 识字.获取字符({ nx1 ,ny1 ,nx2 ,ny2 }, siml);
     字符输出框.SetWindowTextW(output.c_str());
 }
 
@@ -559,5 +658,6 @@ void CMainDialogWnd::OnBnClickedButton4()
     识图.初始化();
     Sleep(5000);
     //穿戴装备(识字, 键鼠, 识图);
-    学习和摆放技能(识字, 键鼠, 识图);
+    //学习和摆放技能(识字, 键鼠, 识图);
+    买药(识字, 键鼠, 识图);
 }
