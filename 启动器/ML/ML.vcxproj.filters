@@ -42,6 +42,9 @@
     <ClCompile Include="识字类.cpp">
       <Filter>识字类</Filter>
     </ClCompile>
+    <ClCompile Include="函数功能类.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ML.def">

@@ -1,6 +1,10 @@
 ﻿#pragma once
-#include "afxdialogex.h"
 
+#include "afxdialogex.h"
+#include <memory>
+#include"键鼠类.h"
+#include"识图类.h"
+#include "识字类.h"
 //将类作为导出类
 #ifndef DLLEXPORY
 #define DLL_EXPORY _declspec(dllimport)
@@ -52,3 +56,19 @@ public:
 	afx_msg void OnBnClickedButton4();
 	CEdit 相似度;
 };
+//主线程
+UINT MyLoopProc(LPVOID pParam);
+void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+
+void 通行证领取(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 邮箱领取(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 坐骑外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 武器外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图);

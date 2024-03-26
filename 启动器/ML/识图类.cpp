@@ -86,6 +86,15 @@ bool 识图类::查找大地图据点()
     return false;
 }
 
+bool 识图类::通行证可领取()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(通行证);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
 bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color)
 {
     // 创建一个与屏幕设备上下文兼容的内存设备上下文

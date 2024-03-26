@@ -22,6 +22,8 @@ private:
 	识图坐标 装备穿戴2 = {};
 	识图坐标 据点1 = { 1047,215,{33,68,108} }; //R<100 蓝色 上下20左右变动吧
 	识图坐标 据点2 = { 1045,189,{50,93,128} }; //B>100
+	识图坐标 通行证 = { 218,45,{228,71,68} }; //R>200
+
 public:
 	void 初始化();
 	std::array<BYTE, 3> 识别颜色(识图坐标 坐标);
@@ -31,6 +33,7 @@ public:
 	bool 查找装备穿戴();
 	bool 生命力药水用完();
 	bool 查找大地图据点();
+	bool 通行证可领取();
 	bool 检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3> &color);
 private:
 	void ColorRefToArray(COLORREF color, std::array<BYTE, 3>& arr);
