@@ -85,7 +85,7 @@ std::wstring 识字类::获取字符(识字坐标 坐标, DOUBLE sim)
 bool 识字类::查找跳过()
 {
     std::wstring 字符 = 获取字符(跳过);
-    if (字符.find(L"跳过")!=std::wstring::npos || 字符.size() == 2) {
+    if (字符.find(L"跳过")!=std::wstring::npos || 字符.find(L"跳") != std::wstring::npos || 字符.find(L"过") != std::wstring::npos) {
         return true;
     }
     return false;
@@ -287,6 +287,50 @@ bool 识字类::查找接受任务()
         return true;
     }
     return false;
+}
+bool 识字类::查找自动开启吃药()
+{
+    std::wstring 字符 = 获取字符(自动开启吃药);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找强化确认弹窗()
+{
+    std::wstring 字符 = 获取字符(强化确认弹窗);
+    if (字符.find(L"确认弹窗") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找强化最大安全阶段()
+{
+    std::wstring 字符 = 获取字符(强化最大安全阶段);
+    if (字符.find(L"安全阶段") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找技能书商人()
+{
+    std::wstring 字符 = 获取字符(技能书商人);
+    if (字符.find(L"技能书商人") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找技能_失明()
+{
+    std::wstring 字符 = 获取字符(技能_失明);
+    if (字符.find(L"失明") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+std::wstring 识字类::获取背包物品名称()
+{
+    return 获取字符(背包物品名称);
 }
 IDispatch* 识字类::COM初始化()
 { 

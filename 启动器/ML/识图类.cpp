@@ -95,8 +95,63 @@ bool 识图类::通行证可领取()
     return false;
 }
 
-bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color)
+bool 识图类::查找菜单红点()
 {
+    std::array<BYTE, 3> Auto1 = 识别颜色(菜单红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找成就红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(成就红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找强化最大安全阶段()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(强化最大安全阶段);
+    if (Auto1[0] > 100 && Auto1[1]>100) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找邮箱红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(邮箱红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找信念传承红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(信念传承红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找收藏红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(收藏红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color,int dis)
+{
+    //大于像素就输出
     // 创建一个与屏幕设备上下文兼容的内存设备上下文
     HDC hMemoryDC = CreateCompatibleDC(hDCScreen);
     // 创建一个位图
@@ -119,9 +174,9 @@ bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE
                 DeleteDC(hMemoryDC);
                 return true;
             }
-            j = j + 4;
+            j = j + dis;
         }
-        i = i + 4;
+        i = i + dis;
     }
     // 清理资源
     DeleteObject(hBitmap);

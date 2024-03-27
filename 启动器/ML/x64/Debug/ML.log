@@ -42,19 +42,37 @@ C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函�
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(72,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(140,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(146,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(144,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(150,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(283,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(335,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(288,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(340,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(348,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(411,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(484,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(494,37): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(836,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(840,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(980,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(984,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“/函数功能类.cpp”)
   
   ML.vcxproj -> C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\x64\Debug\ML.dll
