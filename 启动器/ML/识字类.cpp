@@ -328,6 +328,38 @@ bool 识字类::查找技能_失明()
     }
     return false;
 }
+bool 识字类::查找弓箭手_决心开启()
+{
+    std::wstring 字符 = 获取字符(弓箭手_决心开启);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找弓箭手_精准射击开启()
+{
+    std::wstring 字符 = 获取字符(弓箭手_精准射击开启);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找弓箭手_开始狩猎开启()
+{
+    std::wstring 字符 = 获取字符(弓箭手_开始狩猎开启);
+    if (字符.find(L"开启") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
+bool 识字类::查找弓箭手_侵蚀技能()
+{
+    std::wstring 字符 = 获取字符(弓箭手_侵蚀技能);
+    if (字符.find(L"侵蚀") != std::wstring::npos) {
+        return true;
+    }
+    return false;
+}
 std::wstring 识字类::获取背包物品名称()
 {
     return 获取字符(背包物品名称);

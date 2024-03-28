@@ -1,79 +1,40 @@
-﻿  函数功能类.cpp
+﻿  CMainDialogWnd.cpp
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(18,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
   参见“CDialogEx”的声明
   C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(18,18):
   参见“CMainDialogWnd”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(51,8): warning C4251: “CMainDialogWnd::tb_recValuex1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(52,8): warning C4251: “CMainDialogWnd::tb_recValuey1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(53,8): warning C4251: “CMainDialogWnd::tb_recValuex2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(54,8): warning C4251: “CMainDialogWnd::tb_recValuey2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(55,8): warning C4251: “CMainDialogWnd::字符输出框”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
   
 C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(57,8): warning C4251: “CMainDialogWnd::相似度”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
-  (编译源文件“/函数功能类.cpp”)
+  (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
   参见“CEdit”的声明
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(68,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(72,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(146,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(150,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(335,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(340,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(411,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(484,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(494,37): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(836,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(840,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(980,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
-  
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(984,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“/函数功能类.cpp”)
   
   ML.vcxproj -> C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\x64\Debug\ML.dll
   'pwsh.exe' 不是内部或外部命令，也不是可运行的程序

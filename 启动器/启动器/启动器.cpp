@@ -1,16 +1,17 @@
-﻿#include <Windows.h>
-#include <iostream>
+﻿// 启动.cpp : 定义应用程序的入口点。
+//
 
-// 函数声明
+#include <Windows.h>
+#include <iostream>
 DWORD WINAPI LoadDllThread(LPVOID lpParam);
-int main() {
-    // 目标进程的窗口标题
-    // 查找窗口
-    HWND hWndConsole = GetConsoleWindow();
-    if (hWndConsole != NULL) {
-        // 隐藏控制台窗口
-        ShowWindow(hWndConsole, SW_MINIMIZE);
-    }
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+    _In_opt_ HINSTANCE hPrevInstance,
+    _In_ LPWSTR    lpCmdLine,
+    _In_ int       nCmdShow)
+{
+    UNREFERENCED_PARAMETER(hPrevInstance);
+    UNREFERENCED_PARAMETER(lpCmdLine);
     HWND hwnd = FindWindow(L"UnrealWindow", L"NIGHT CROWS(1)  ");
     if (hwnd == NULL) {
         OutputDebugStringA("Window not found!\n");
@@ -28,12 +29,16 @@ int main() {
         OutputDebugStringA("MRZHUGE_CreateThread failed\n");
         return 1;
     }
-    OutputDebugStringA("MRZHUGE_调用成功\n");
+    //OutputDebugStringA("MRZHUGE_调用成功\n");
     // 等待线程完成
     WaitForSingleObject(hThread, INFINITE);
     CloseHandle(hThread);
     return 0;
+
+    return 0;
 }
+
+
 DWORD WINAPI LoadDllThread(LPVOID lpParam) {
     const char* dllPath = static_cast<const char*>(lpParam);
     HMODULE hModule = LoadLibraryA(dllPath);
@@ -42,7 +47,7 @@ DWORD WINAPI LoadDllThread(LPVOID lpParam) {
         OutputDebugStringA("MRZHUGE_LoadLibrary failed:\n ");
     }
     else {
-        typedef DWORD (*ShowDialog)();
+        typedef DWORD(*ShowDialog)();
         ShowDialog start = (ShowDialog)GetProcAddress(hModule, "ShowDialog");
         DWORD r = start();
         OutputDebugStringA("MRZHUGE_调用成功\n");

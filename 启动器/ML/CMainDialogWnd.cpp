@@ -48,6 +48,7 @@ END_MESSAGE_MAP()
 // CMLApp 初始化
 CMainDialogWnd* PMainDialog;
 extern "C" DLL_EXPORY DWORD ShowDialog(LPVOID lpParam) {
+   
 	std::unique_ptr<CMainDialogWnd> PMainDialog(new CMainDialogWnd);
 	PMainDialog->DoModal();
 	return TRUE;
@@ -106,12 +107,12 @@ UINT MyLoopProc(LPVOID pParam)
                 成就领取(识字, 键鼠, 识图);
                 邮箱领取(识字, 键鼠, 识图);
                 每日商店领取(识字, 键鼠, 识图);
-                开箱子(识字, 键鼠, 识图);
-                强化装备(识字, 键鼠, 识图);
-                坐骑外形装备(识字, 键鼠, 识图);
-                武器外形装备(识字, 键鼠, 识图);
-                收藏箱添加(识字, 键鼠, 识图);
-                信念传承(识字, 键鼠, 识图);
+                //开箱子(识字, 键鼠, 识图);
+                //强化装备(识字, 键鼠, 识图);
+                //坐骑外形装备(识字, 键鼠, 识图);
+                //武器外形装备(识字, 键鼠, 识图);
+                //收藏箱添加(识字, 键鼠, 识图);
+                //信念传承(识字, 键鼠, 识图);
             }
             std::array<BYTE, 3> 检测色块 = { 200,200,200 };//百位和千位的血瓶数量
             if (识图.生命力药水用完()&& !识图.检查范围内颜色(901, 711, 16, 13, 检测色块, 3)
@@ -228,11 +229,12 @@ UINT MyLoopProc(LPVOID pParam)
                 Sleep(1000);
                 买技能书(识字, 键鼠, 识图);
                 Sleep(1000);
+                学习和摆放技能(识字, 键鼠, 识图);
+                Sleep(1000);
                 持续技能开启(识字, 键鼠, 识图);
                 Sleep(1000);
                 穿戴装备(识字, 键鼠, 识图);
-                Sleep(1000);
-                学习和摆放技能(识字, 键鼠, 识图);
+                
                 Sleep(1000);
                 嗑状态药(识字, 键鼠, 识图);
                 Sleep(1000);
