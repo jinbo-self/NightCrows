@@ -29,6 +29,8 @@ private:
 	识图坐标 邮箱红点 = { 1062,689,{230,76,74} }; //R>200
 	识图坐标 信念传承红点 = { 1207,174,{230,76,74} };
 	识图坐标 收藏红点 = { 1256,116,{230,76,74} };
+	识图坐标 坐骑红点 = { 1159,239,{227,66,64} };
+	识图坐标 武器外形红点 = { 1256,238,{230,76,74} };
 public:
 	识图坐标 强化最大安全阶段 = { 165,734,{158,139,99} };//RG>100
 	void 初始化();
@@ -46,6 +48,8 @@ public:
 	bool 查找邮箱红点();
 	bool 查找信念传承红点();
 	bool 查找收藏红点();
+	bool 查找坐骑红点();
+	bool 查找武器外形红点();
 	bool 检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3> &color,int dis=4);
 private:
 	void ColorRefToArray(COLORREF color, std::array<BYTE, 3>& arr);

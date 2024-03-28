@@ -5,6 +5,7 @@
 #include"键鼠类.h"
 #include"识图类.h"
 #include "识字类.h"
+#include <atomic>
 //将类作为导出类
 #ifndef DLLEXPORY
 #define DLL_EXPORY _declspec(dllimport)
@@ -14,7 +15,7 @@
 #include "resource.h"
 
 // CMainDialogWnd 对话框
-
+extern std::atomic<bool> running;
 class DLL_EXPORY CMainDialogWnd : public CDialogEx
 {
 	DECLARE_DYNAMIC(CMainDialogWnd)
@@ -37,6 +38,7 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
+	//重写消息
 	BOOL CMainDialogWnd::PreTranslateMessage(MSG* pMsg)
 	{
 		if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_ESCAPE)
@@ -44,7 +46,16 @@ public:
 			// 屏蔽ESC键消息
 			return TRUE;
 		}
-
+		if (pMsg->message == WM_KEYDOWN)
+		{
+			switch (pMsg->wParam)
+			{
+			case VK_END: // 检查F1键
+				OnBnClickedButton2();
+				return TRUE;
+				// 添加其他按键处理
+			}
+		}
 		return CDialogEx::PreTranslateMessage(pMsg);
 	}
 	// 左上角坐标x

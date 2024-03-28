@@ -149,6 +149,24 @@ bool 识图类::查找收藏红点()
     return false;
 }
 
+bool 识图类::查找坐骑红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(坐骑红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
+bool 识图类::查找武器外形红点()
+{
+    std::array<BYTE, 3> Auto1 = 识别颜色(武器外形红点);
+    if (Auto1[0] > 200) {
+        return true;
+    }
+    return false;
+}
+
 bool 识图类::检查范围内颜色(int x, int y, int width, int height, std::array<BYTE, 3>& color,int dis)
 {
     //大于像素就输出

@@ -24,12 +24,12 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 背包装备x[4] = { 1017,1069,1127,1178 }; //直接记录一行的位置
     while (识字.查找背包() && 识图.识别颜色(背包E起始)[0] > 190)
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         for (int index = 0; index < 4; index++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包装备x[index];
@@ -55,14 +55,14 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 装备数量 = 0;
     while (识字.查找背包())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包起始.x + i * 54;
@@ -86,7 +86,7 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     背包起始 = { 1019,155 };//25*25
     while (装备数量 > -1)
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 行号 = 装备数量 / 4;//13/4=3...1  12/4=3...0
@@ -104,7 +104,7 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
         键鼠.按下按键('I');
     }
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -133,14 +133,14 @@ void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     //查找背包,学习技能
     while (识字.查找背包())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包起始.x + i * 54;
@@ -151,23 +151,33 @@ void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
                 跳出 = true;
                 break;
             }
-            else
-            {
-                键鼠.移动鼠标(背包x, 背包y);
-                键鼠.点击鼠标左键();
-                Sleep(1000);
-                if (识字.查找背包技能书说明())
-                {
-                    键鼠.点击鼠标左键();
-                    Sleep(1000);
-                }
-            }
         }
         if (跳出)
         {
             break;
         }
         index++;
+    }
+
+    //第一个装备还是需要穿戴
+    背包起始 = { 1019,155 };//25*25
+    while (物品数量 > -1)
+    {
+        if (running) {
+            return;
+        }
+        int 行号 = 物品数量 / 4;//13/4=3...1  12/4=3...0
+        int 列号 = 物品数量 % 4;
+        识图坐标 坐标 = { 背包起始.x + 列号 * 54,背包起始.y + 行号 * 54 };
+        键鼠.移动鼠标(坐标.x, 坐标.y);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        if (识字.查找背包技能书说明())
+        {
+            键鼠.点击鼠标左键();
+            Sleep(1000);
+        }
+        物品数量--;
     }
 
     //摆放技能
@@ -259,7 +269,7 @@ void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
         键鼠.按下按键('K');
     }
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -283,7 +293,7 @@ void 持续技能开启(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     if (!识字.查找弓箭手_侵蚀技能())
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -325,7 +335,7 @@ void 持续技能开启(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
     //回到主界面
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -349,14 +359,14 @@ void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 物品数量 = 0;
     while (识字.查找背包())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包起始.x + i * 54;
@@ -392,7 +402,7 @@ void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
         键鼠.按下按键('I');
     }
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -410,7 +420,7 @@ void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
     while (!识图.查找大地图据点() && 识字.查找大地图_世界())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.移动鼠标(1051, 199);
@@ -434,10 +444,10 @@ void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
 
     //购买
-    //先购买70%瓶药水
+    //先购买70%瓶药水，2000瓶吧，超过70就不会回蓝了
     DWORD startTime = GetTickCount64();
     while (!识字.查找杂货商人()) {
-        if (GetAsyncKeyState(VK_END) & 0x8000 || GetTickCount64() - startTime > 60000) {
+        if (running || GetTickCount64() - startTime > 60000) {
             return;
         }
         Sleep(100);
@@ -446,7 +456,16 @@ void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.移动鼠标(256, 134);
     键鼠.点击鼠标左键();
     Sleep(1000);
-    键鼠.移动鼠标(727, 403);
+    //购买
+    键鼠.移动鼠标(609, 439);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    //3个0
+    键鼠.移动鼠标(551, 476);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
@@ -464,7 +483,7 @@ void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.按下按键('Y');
     Sleep(1000);
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -483,7 +502,7 @@ void 买技能书(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
     while (!识图.查找大地图据点() && 识字.查找大地图_世界())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.移动鼠标(1051, 199);
@@ -510,7 +529,7 @@ void 买技能书(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     //先购买70%瓶药水
     DWORD startTime = GetTickCount64();
     while (!识字.查找技能书商人()) {
-        if (GetAsyncKeyState(VK_END) & 0x8000 || GetTickCount64() - startTime > 60000) {
+        if (running || GetTickCount64() - startTime > 60000) {
             return;
         }
         Sleep(100);
@@ -526,7 +545,7 @@ void 买技能书(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     
     Sleep(1000);
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -596,7 +615,7 @@ void 通行证领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     Sleep(500);
     //需要确保一定关掉了窗口
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -617,7 +636,7 @@ void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -634,7 +653,7 @@ void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -644,7 +663,7 @@ void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
     //领取主要成就
     
-    键鼠.移动鼠标(639, 596);
+    键鼠.移动鼠标(644, 502);
     Sleep(500);
     键鼠.点击鼠标左键();
     Sleep(1500);
@@ -711,7 +730,7 @@ void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     Sleep(500);
     //需要确保一定关掉了窗口
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -733,7 +752,7 @@ void 邮箱领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -750,7 +769,7 @@ void 邮箱领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
     //需要确保一定关掉了窗口
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -776,7 +795,21 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
-    Sleep(2000);
+    Sleep(1000);
+    //如果开抽奖类的箱子：
+    if (识字.查找跳过()) {
+        键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+        Sleep(2000);
+        键鼠.点击鼠标左键();
+        Sleep(2000);
+        键鼠.移动鼠标(644, 718);
+        Sleep(1000);
+        键鼠.点击鼠标左键();
+    }
+    Sleep(1000);
     键鼠.移动鼠标(75, 411);
     键鼠.点击鼠标左键();
     Sleep(500);
@@ -786,7 +819,20 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
-    Sleep(2000);
+    Sleep(1000);
+    //如果开抽奖类的箱子：
+    if (识字.查找跳过()) {
+        键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+        Sleep(2000);
+        键鼠.点击鼠标左键();
+        Sleep(2000);
+        键鼠.移动鼠标(644, 718);
+        键鼠.点击鼠标左键();
+    }
+    Sleep(1000);
     键鼠.移动鼠标(75, 411);
     键鼠.点击鼠标左键();
     Sleep(500);
@@ -796,7 +842,19 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
-    Sleep(2000);
+    //如果开抽奖类的箱子：
+    if (识字.查找跳过()) {
+        键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+        Sleep(2000);
+        键鼠.点击鼠标左键();
+        Sleep(2000);
+        键鼠.移动鼠标(644, 718);
+        键鼠.点击鼠标左键();
+    }
+    Sleep(1000);
     键鼠.移动鼠标(75, 411);
     键鼠.点击鼠标左键();
     Sleep(500);
@@ -806,7 +864,19 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
-    Sleep(2000);
+    //如果开抽奖类的箱子：
+    if (识字.查找跳过()) {
+        键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+        Sleep(2000);
+        键鼠.点击鼠标左键();
+        Sleep(2000);
+        键鼠.移动鼠标(644, 718);
+        键鼠.点击鼠标左键();
+    }
+    Sleep(1000);
     键鼠.移动鼠标(75, 411);
     键鼠.点击鼠标左键();
     Sleep(500);
@@ -816,12 +886,90 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.按下按键('Y');
-    Sleep(2000);
+    //如果开抽奖类的箱子：
+    if (识字.查找跳过()) {
+        键鼠.移动鼠标((识字.跳过.x1 + 识字.跳过.x2) / 2, (识字.跳过.y1 + 识字.跳过.y2) / 2);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+        键鼠.按下按键('Y');
+        Sleep(2000);
+        键鼠.点击鼠标左键();
+        Sleep(2000);
+        键鼠.移动鼠标(644, 718);
+        键鼠.点击鼠标左键();
+    }
+    Sleep(1000);
     键鼠.移动鼠标(75, 411);
     键鼠.点击鼠标左键();
     Sleep(500);
+    //普通购买
+    键鼠.移动鼠标(96,163);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+
+    //武器强化
+    键鼠.移动鼠标(307, 276);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(585, 498);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.移动鼠标(108, 528);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    //防具
+    键鼠.移动鼠标(505, 279);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(585, 498);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.移动鼠标(108, 528);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    //灵药
+    键鼠.移动鼠标(716, 262);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(585, 498);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.移动鼠标(108, 528);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    //发光
+    键鼠.移动鼠标(296, 490);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(585, 498);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.移动鼠标(108, 528);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    //
+    键鼠.移动鼠标(506, 494);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(585, 498);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.按下按键('Y');
+    Sleep(1000);
+    键鼠.移动鼠标(108, 528);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -850,14 +998,14 @@ void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     //查找背包,学习技能
     while (识字.查找背包())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包起始.x + i * 54;
@@ -882,7 +1030,7 @@ void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 总数量 = 物品数量;
     while (物品数量 > -1)
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         if (物品数量== 总数量)
@@ -911,7 +1059,7 @@ void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
         {
             //需要确保一定关掉了窗口
             while (!(识图.isAuto() || 识图.isQuest())) {
-                if (GetAsyncKeyState(VK_END) & 0x8000) {
+                if (running) {
                     return;
                 }
                 键鼠.按下按键(VK_ESCAPE);
@@ -958,12 +1106,14 @@ void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
             键鼠.点击鼠标左键();
             Sleep(2000);
             键鼠.移动鼠标(644, 718);
+            Sleep(1000);
             键鼠.点击鼠标左键();
+            Sleep(1000);
         }
         物品数量--;
     }
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -994,14 +1144,14 @@ void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     int 装备数量 = 0;
     while (识字.查找背包())
     {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         int 背包y = 背包起始.y + index * 54;
         bool 跳出 = false;
         for (size_t i = 0; i < 4; i++)
         {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             int 背包x = 背包起始.x + i * 54;
@@ -1053,7 +1203,7 @@ void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     }
 
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);
@@ -1064,13 +1214,107 @@ void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 坐骑外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    Sleep(1000);
+    if (识图.查找菜单红点())
+    {
+        键鼠.移动鼠标(1238, 60);
+        Sleep(500);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+    }
+    else
+    {
+        while (!(识图.isAuto() || 识图.isQuest())) {
+            if (running) {
+                return;
+            }
+            键鼠.按下按键(VK_ESCAPE);
+        }
+        return;
+    }
+    if (识图.查找坐骑红点())
+    {
+        键鼠.移动鼠标(1145, 255);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+    }
+    else
+    {
+        while (!(识图.isAuto() || 识图.isQuest())) {
+            if (running) {
+                return;
+            }
+            键鼠.按下按键(VK_ESCAPE);
+        }
+        return;
+    }
 
+    键鼠.移动鼠标(1033,190);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(1179, 720);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    while (!(识图.isAuto() || 识图.isQuest())) {
+        if (running) {
+            return;
+        }
+        键鼠.按下按键(VK_ESCAPE);
+    }
+    Sleep(500);
 }
 
 void 武器外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
-}
+    Sleep(1000);
+    if (识图.查找菜单红点())
+    {
+        键鼠.移动鼠标(1238, 60);
+        Sleep(500);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+    }
+    else
+    {
+        while (!(识图.isAuto() || 识图.isQuest())) {
+            if (running) {
+                return;
+            }
+            键鼠.按下按键(VK_ESCAPE);
+        }
+        return;
+    }
+    if (识图.查找武器外形红点())
+    {
+        键鼠.移动鼠标(1240, 257);
+        键鼠.点击鼠标左键();
+        Sleep(1000);
+    }
+    else
+    {
+        while (!(识图.isAuto() || 识图.isQuest())) {
+            if (running) {
+                return;
+            }
+            键鼠.按下按键(VK_ESCAPE);
+        }
+        return;
+    }
 
+    键鼠.移动鼠标(958, 211);
+    键鼠.点击鼠标左键();
+    Sleep(1000);
+    键鼠.移动鼠标(1128, 718);
+    键鼠.点击鼠标左键();
+    Sleep(500);
+    while (!(识图.isAuto() || 识图.isQuest())) {
+        if (running) {
+            return;
+        }
+        键鼠.按下按键(VK_ESCAPE);
+    }
+    Sleep(500);
+}
 //暂未完成
 void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
@@ -1086,7 +1330,7 @@ void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -1102,7 +1346,7 @@ void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -1124,7 +1368,7 @@ void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -1140,7 +1384,7 @@ void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     else
     {
         while (!(识图.isAuto() || 识图.isQuest())) {
-            if (GetAsyncKeyState(VK_END) & 0x8000) {
+            if (running) {
                 return;
             }
             键鼠.按下按键(VK_ESCAPE);
@@ -1162,7 +1406,7 @@ void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     Sleep(1000);
 
     while (!(识图.isAuto() || 识图.isQuest())) {
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+        if (running) {
             return;
         }
         键鼠.按下按键(VK_ESCAPE);

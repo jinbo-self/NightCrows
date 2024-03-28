@@ -10,8 +10,9 @@
 // CMainDialogWnd 对话框
 
 IMPLEMENT_DYNAMIC(CMainDialogWnd, CDialogEx)
+// 使用原子变量安全地在多个线程间共享状态
 
-
+std::atomic<bool> running(false);
 CMainDialogWnd::CMainDialogWnd(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG1, pParent)
 {
@@ -64,6 +65,7 @@ void CMainDialogWnd::OnBnClickedOk()
 
 void CMainDialogWnd::OnBnClickedButton1()
 {
+    running = false;
     AfxBeginThread(MyLoopProc, NULL);
 
 }
@@ -82,8 +84,23 @@ UINT MyLoopProc(LPVOID pParam)
     int virtualKeys[4] = { 'W', 'A', 'S', 'D' };
     while (true) {
         Sleep(10);
+        HWND hwnd = FindWindow(L"UnrealWindow", L"NIGHT CROWS(1)  ");
+        if (hwnd != NULL) {
+            RECT rect;
+            GetWindowRect(hwnd, &rect);
 
-        if (GetAsyncKeyState(VK_END) & 0x8000) {
+            int windowWidth = rect.right - rect.left;
+            int windowHeight = rect.bottom - rect.top;
+
+            int windowX = rect.left;
+            int windowY = rect.top;
+            if (windowX!=0 || windowY!=0 || windowWidth!=1280 || windowHeight!=726)
+            {
+                MoveWindow(hwnd, 0, 0, 1280, 756, TRUE);
+            }
+            
+        }
+        if (running) {
             break;
         }
 
@@ -126,12 +143,12 @@ UINT MyLoopProc(LPVOID pParam)
             std::array<BYTE, 3> 残血 = 识图.识别颜色({ 109,712 });
             if (残血[0] < 100)  //血条掉到一半以下
             {
-                if (!识字.查找死亡骑士())
-                {
-                    //绕圈打法回血 ,死亡骑士直接锁定,还是别走位浪费输出时间了
-                    键鼠.按下按键(virtualKeys[index % 4], 5000);
-                    index++;
-                }
+                //if (!识字.查找死亡骑士())
+                //{
+                //    //绕圈打法回血 ,死亡骑士直接锁定,还是别走位浪费输出时间了
+                //    键鼠.按下按键(virtualKeys[index % 4], 5000);
+                //    index++;
+                //}
 
             }
             continue;
@@ -150,7 +167,7 @@ UINT MyLoopProc(LPVOID pParam)
                 //绕圈打法回血
                 OutputDebugString(L"回血\n");
                 while (识图.识别颜色({ 188,711 })[0] < 100) {
-                    if (GetAsyncKeyState(VK_END) & 0x8000) {
+                    if (running) {
                         break;
                     }
                     Sleep(1000);
@@ -224,8 +241,10 @@ UINT MyLoopProc(LPVOID pParam)
                 if (!(识图.isQuest() || 识图.isAuto())) {
                     键鼠.按下按键(VK_ESCAPE);
                 }
+                /*Sleep(1000);
+                买药(识字, 键鼠, 识图);*/
                 Sleep(1000);
-                买药(识字, 键鼠, 识图);
+                每日商店领取(识字, 键鼠, 识图);
                 Sleep(1000);
                 买技能书(识字, 键鼠, 识图);
                 Sleep(1000);
@@ -243,7 +262,7 @@ UINT MyLoopProc(LPVOID pParam)
                 通行证领取(识字, 键鼠, 识图);
                 成就领取(识字, 键鼠, 识图);
                 邮箱领取(识字, 键鼠, 识图);
-                每日商店领取(识字, 键鼠, 识图);
+                
                 开箱子(识字, 键鼠, 识图);
                 强化装备(识字, 键鼠, 识图);
                 坐骑外形装备(识字, 键鼠, 识图);
@@ -279,9 +298,7 @@ UINT MyLoopProc(LPVOID pParam)
 void CMainDialogWnd::OnBnClickedButton2()
 {
     // TODO: 在此添加控件通知处理程序代码
-    Sleep(5000);
-    键鼠类 键鼠;
-    键鼠.按下按键('I');
+    running = true;
 }
 
 
@@ -331,10 +348,10 @@ void CMainDialogWnd::OnBnClickedButton4()
     //买药(识字, 键鼠, 识图);
     /*通行证领取(识字, 键鼠, 识图);*/
     //成就领取(识字, 键鼠, 识图);
-    /*开箱子(识字, 键鼠, 识图);*/
+    //开箱子(识字, 键鼠, 识图);
     //强化装备(识字, 键鼠, 识图);
     //邮箱领取(识字, 键鼠, 识图);
     //每日商店领取(识字, 键鼠, 识图);
     //信念传承(识字, 键鼠, 识图);
-    持续技能开启(识字, 键鼠, 识图);
+    //持续技能开启(识字, 键鼠, 识图);
 }
