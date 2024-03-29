@@ -1,0 +1,1 @@
+g++ -o "/home/zhuge/projects/server/bin/x64/Release/server.out" -Wl,--no-undefined -Wl,-L"/home/zhuge/projects/server/../hp-socket-6.0.1-lib-linux/lib" -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/zhuge/projects/server/obj/x64/Release/main.o

@@ -11,6 +11,7 @@
 
 IMPLEMENT_DYNAMIC(CMainDialogWnd, CDialogEx)
 // 使用原子变量安全地在多个线程间共享状态
+#define 文件名 "角色配置.txt"
 
 std::atomic<bool> running(false);
 CMainDialogWnd::CMainDialogWnd(CWnd* pParent /*=nullptr*/)
@@ -67,6 +68,36 @@ void CMainDialogWnd::OnBnClickedButton1()
 {
     running = false;
     AfxBeginThread(MyLoopProc, NULL);
+    //识字类 识字;
+    //键鼠类 键鼠;
+    //识图类 识图;
+
+    //识字.COM初始化();
+    //识图.初始化();
+    ////返回角色界面
+    //if (识图.isAuto() || 识图.isQuest())
+    //{
+    //    键鼠.移动鼠标(1243,59);
+    //    键鼠.点击鼠标左键();
+    //    Sleep(1000);
+    //    键鼠.移动鼠标(1241, 706);
+    //    键鼠.点击鼠标左键();
+    //    Sleep(1000);
+    //    键鼠.按下按键('Y');
+    //    Sleep(3000);
+    //}
+
+
+    //if (识字.查找等级()<35)
+    //{
+    //    AfxBeginThread(MyLoopProc, NULL);
+    //}
+    //else
+    //{
+    //    AfxBeginThread(刷副本线程, NULL);
+    //}
+    
+    
 
 }
 
@@ -77,7 +108,6 @@ UINT MyLoopProc(LPVOID pParam)
     键鼠类 键鼠;
     识图类 识图;
 
-
     识字.COM初始化();
     识图.初始化();
     int index = 0;
@@ -85,20 +115,31 @@ UINT MyLoopProc(LPVOID pParam)
     while (true) {
         Sleep(10);
         HWND hwnd = FindWindow(L"UnrealWindow", L"NIGHT CROWS(1)  ");
+        DWORD dwMajor, dwMinor, dwBuildNumber;
         if (hwnd != NULL) {
-            RECT rect;
-            GetWindowRect(hwnd, &rect);
-
-            int windowWidth = rect.right - rect.left;
-            int windowHeight = rect.bottom - rect.top;
-
-            int windowX = rect.left;
-            int windowY = rect.top;
-            if (windowX!=0 || windowY!=0 || windowWidth!=1280 || windowHeight!=726)
-            {
-                MoveWindow(hwnd, 0, 0, 1280, 756, TRUE);
-            }
-            
+            ////客户区:1264，717，8，31--->1280,726
+            char buffer[32]; // 用于存储转换后的字符串
+            MoveWindow(hwnd, 0, 0, 1280, 756, TRUE);
+            //AdjustWindow(hwnd, 1264, 717, 8, 31);
+            // 使用 sprintf 将 DWORD 值转换成字符串
+            //sprintf_s(buffer, "系统版本号：%lu\n", dwMajor);
+            //MoveWindow(hwnd, 0, 0, 1280, 756, TRUE);
+            // 使用 OutputDebugStringA 输出字符串
+            //OutputDebugStringA(buffer);
+            //if (dwMajor==11)
+            //{
+            //    MoveWindow(hwnd, 0, 0, 1280, 756, TRUE);
+            //}
+            //else
+            //{
+            //    //实际大小1266，719->1264，717 == 1265,718
+            //    //                   1265, 718 == 1266，719
+            //    AdjustWindow(hwnd, 1264,717, 8, 31);
+            //}
+        }
+        else
+        {
+            continue;
         }
         if (running) {
             break;
@@ -123,17 +164,17 @@ UINT MyLoopProc(LPVOID pParam)
                 通行证领取( 识字,  键鼠,  识图);
                 成就领取(识字, 键鼠, 识图);
                 邮箱领取(识字, 键鼠, 识图);
-                每日商店领取(识字, 键鼠, 识图);
+                //每日商店领取(识字, 键鼠, 识图);
                 //开箱子(识字, 键鼠, 识图);
                 //强化装备(识字, 键鼠, 识图);
-                //坐骑外形装备(识字, 键鼠, 识图);
-                //武器外形装备(识字, 键鼠, 识图);
+                坐骑外形装备(识字, 键鼠, 识图);
+                武器外形装备(识字, 键鼠, 识图);
                 //收藏箱添加(识字, 键鼠, 识图);
-                //信念传承(识字, 键鼠, 识图);
+                信念传承(识字, 键鼠, 识图);
             }
             std::array<BYTE, 3> 检测色块 = { 200,200,200 };//百位和千位的血瓶数量
-            if (识图.生命力药水用完()&& !识图.检查范围内颜色(901, 711, 16, 13, 检测色块, 3)
-                &&识字.查找快捷栏药品数量()<100)
+            if ((识图.生命力药水用完()&& !识图.检查范围内颜色(901, 711, 16, 13, 检测色块, 3))
+                ||(识字.查找快捷栏药品数量()<100&& 识图.生命力药水用完() && !识图.检查范围内颜色(901, 711, 16, 13, 检测色块, 3)))
             {
                 买药(识字, 键鼠, 识图);//低于100就买药
             }
@@ -230,6 +271,9 @@ UINT MyLoopProc(LPVOID pParam)
                 键鼠.点击鼠标左键();
             }
             if (识字.查找节电模式()) {
+                键鼠.移动鼠标((识字.节电模式.x1 + 识字.节电模式.x2) / 2, (识字.节电模式.y1 + 识字.节电模式.y2) / 2);
+                键鼠.点击鼠标左键();
+                Sleep(100);
                 键鼠.按下按键('L');
             }
             if (识字.查找复活()) {
@@ -243,10 +287,11 @@ UINT MyLoopProc(LPVOID pParam)
                 }
                 /*Sleep(1000);
                 买药(识字, 键鼠, 识图);*/
-                Sleep(1000);
-                每日商店领取(识字, 键鼠, 识图);
+                
                 Sleep(1000);
                 买技能书(识字, 键鼠, 识图);
+                Sleep(1000);
+                每日商店领取(识字, 键鼠, 识图);
                 Sleep(1000);
                 学习和摆放技能(识字, 键鼠, 识图);
                 Sleep(1000);
@@ -294,6 +339,14 @@ UINT MyLoopProc(LPVOID pParam)
 
     return 0;
 }
+
+UINT 刷副本线程(LPVOID pParam)
+{
+
+    return 0;
+}
+
+
 
 void CMainDialogWnd::OnBnClickedButton2()
 {

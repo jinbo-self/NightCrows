@@ -6,6 +6,12 @@
 #include"识图类.h"
 #include "识字类.h"
 #include <atomic>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <codecvt>
+#include <sstream>
+#include <filesystem>
 //将类作为导出类
 #ifndef DLLEXPORY
 #define DLL_EXPORY _declspec(dllimport)
@@ -13,7 +19,13 @@
 #define DLL_EXPORY _declspec(dllexport)
 #endif
 #include "resource.h"
-
+#include <vector>
+struct 角色配置 {
+	std::wstring 名字;
+	int 等级;
+	bool 是否刷完;
+	bool 正在刷;
+};
 // CMainDialogWnd 对话框
 extern std::atomic<bool> running;
 class DLL_EXPORY CMainDialogWnd : public CDialogEx
@@ -21,6 +33,7 @@ class DLL_EXPORY CMainDialogWnd : public CDialogEx
 	DECLARE_DYNAMIC(CMainDialogWnd)
 
 public:
+	
 	CMainDialogWnd(CWnd* pParent = nullptr);   // 标准构造函数
 	virtual ~CMainDialogWnd();
 
@@ -69,6 +82,7 @@ public:
 };
 //主线程
 UINT MyLoopProc(LPVOID pParam);
+UINT 刷副本线程(LPVOID pParam);
 void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 /*主动技能摆放,弓箭手会开启决心*/
 void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图);
@@ -87,3 +101,14 @@ void 坐骑外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 void 武器外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图);
 void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图);
+
+// 定义函数原型
+typedef NTSTATUS(NTAPI* pRtlGetVersion)(LPOSVERSIONINFOEXW);
+
+// 获取操作系统版本
+bool GetOSVersion(DWORD& dwMajor, DWORD& dwMinor, DWORD& dwBuildNumber);
+//调整窗口大小
+void AdjustWindow(HWND hWnd, int clientWidth, int clientHeight, int clientX, int clientY);
+
+std::vector<角色配置> 读取角色配置(const std::string& 文件名);
+void 写入角色配置(const std::string& 文件名, const std::vector<角色配置>& 角色数组);

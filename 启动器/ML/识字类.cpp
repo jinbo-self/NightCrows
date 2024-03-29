@@ -360,6 +360,20 @@ bool 识字类::查找弓箭手_侵蚀技能()
     }
     return false;
 }
+int 识字类::查找等级()
+{
+    std::wstring 字符 = 获取字符(等级, 1);
+    try
+    {
+        int number = std::stoi(字符); // 将wstring转换为int
+        return number;
+    }
+    catch (const std::exception&)
+    {
+        return 0;
+    }
+    return 0;
+}
 std::wstring 识字类::获取背包物品名称()
 {
     return 获取字符(背包物品名称);

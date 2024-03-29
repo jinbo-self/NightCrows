@@ -5,6 +5,9 @@
 
 void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     if (!识字.查找背包())
     {
         键鼠.按下按键('I');
@@ -114,6 +117,9 @@ void 穿戴装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     //学习技能
     if (!识字.查找背包())
     {
@@ -279,6 +285,9 @@ void 学习和摆放技能(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 持续技能开启(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     //摆放技能
     if (!识字.查找主动技能())
@@ -345,6 +354,9 @@ void 持续技能开启(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     if (!识字.查找背包())
     {
         键鼠.按下按键('I');
@@ -413,6 +425,9 @@ void 嗑状态药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     //去地图杂货店
     if (!识字.查找大地图_世界())
     {
@@ -495,6 +510,9 @@ void 买药(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 买技能书(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     //去地图技能店
     if (!识字.查找大地图_世界())
     {
@@ -556,6 +574,9 @@ void 买技能书(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 通行证领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     //打开通行证
     键鼠.移动鼠标(203, 58);
@@ -625,6 +646,9 @@ void 通行证领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     if (识图.查找菜单红点())
     {
@@ -741,6 +765,9 @@ void 成就领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 邮箱领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     if (识图.查找菜单红点())
     {
@@ -779,6 +806,9 @@ void 邮箱领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     键鼠.按下按键('V');
     Sleep(1000);
@@ -907,8 +937,9 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.点击鼠标左键();
     Sleep(1000);
 
-    //武器强化
-    键鼠.移动鼠标(307, 276);
+    
+    //防具
+    键鼠.移动鼠标(505, 279);
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.移动鼠标(585, 498);
@@ -919,8 +950,9 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
     键鼠.移动鼠标(108, 528);
     键鼠.点击鼠标左键();
     Sleep(500);
-    //防具
-    键鼠.移动鼠标(505, 279);
+
+    //武器强化
+    键鼠.移动鼠标(307, 276);
     键鼠.点击鼠标左键();
     Sleep(1000);
     键鼠.移动鼠标(585, 498);
@@ -979,6 +1011,9 @@ void 每日商店领取(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     //查找箱子
     if (!识字.查找背包())
     {
@@ -1123,6 +1158,9 @@ void 开箱子(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     //查找强化卷轴
     if (!识字.查找背包())
     {
@@ -1214,6 +1252,9 @@ void 强化装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 坐骑外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     if (识图.查找菜单红点())
     {
@@ -1266,6 +1307,9 @@ void 坐骑外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 武器外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     if (识图.查找菜单红点())
     {
@@ -1318,6 +1362,9 @@ void 武器外形装备(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 //暂未完成
 void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     return;
     Sleep(1000);
     if (识图.查找菜单红点())
@@ -1357,6 +1404,9 @@ void 收藏箱添加(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 
 void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图)
 {
+    if (running) {
+        return;
+    }
     Sleep(1000);
     if (识图.查找菜单红点())
     {
@@ -1412,4 +1462,97 @@ void 信念传承(识字类 识字, 键鼠类 键鼠, 识图类 识图)
         键鼠.按下按键(VK_ESCAPE);
     }
     Sleep(500);
+}
+
+DWORD 获取win版本号(DWORD& dwMajor, DWORD& dwMinor, DWORD& dwBuildNumber, int clientHeight, int clientY)
+{
+    return 0;
+}
+
+
+// 获取操作系统版本
+bool GetOSVersion(DWORD& dwMajor, DWORD& dwMinor, DWORD& dwBuildNumber) {
+    HMODULE hMod = ::GetModuleHandleW(L"ntdll.dll");
+    if (hMod) {
+        pRtlGetVersion rtlGetVersion = (pRtlGetVersion)::GetProcAddress(hMod, "RtlGetVersion");
+        if (rtlGetVersion != nullptr) {
+            OSVERSIONINFOEXW osInfo = {};
+            osInfo.dwOSVersionInfoSize = sizeof(osInfo);
+
+            if (rtlGetVersion(&osInfo) == 0) { // STATUS_SUCCESS == 0
+                dwMajor = osInfo.dwMajorVersion;
+                dwMinor = osInfo.dwMinorVersion;
+                dwBuildNumber = osInfo.dwBuildNumber;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+//调整窗口大小
+void AdjustWindow(HWND hWnd, int clientWidth, int clientHeight, int clientX, int clientY) {
+    DWORD dwStyle = GetWindowLong(hWnd, GWL_STYLE);
+    DWORD dwExStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
+    HMENU menu = GetMenu(hWnd);
+
+    RECT rc = { 0, 0, clientWidth, clientHeight };
+
+    // 考虑到窗口样式和菜单栏（如果有的话），调整矩形大小
+    AdjustWindowRectEx(&rc, dwStyle, menu ? TRUE : FALSE, dwExStyle);
+
+    // 计算窗口整体大小
+    int width = rc.right - rc.left;
+    int height = rc.bottom - rc.top;
+
+    // 计算窗口的新位置，以使客户区位于指定位置
+    int windowX = clientX + rc.left;
+    int windowY = clientY + rc.top;
+
+    // 设置窗口的位置和大小
+    SetWindowPos(hWnd, NULL, windowX, windowY, width, height, SWP_NOZORDER);
+}
+
+std::vector<角色配置> 读取角色配置(const std::string& 文件名) {
+    std::vector<角色配置> 角色数组;
+    std::wifstream 文件(文件名);
+    std::locale loc(std::locale::classic(), new std::codecvt_utf8<wchar_t>);
+    文件.imbue(loc);
+
+    if (!文件.is_open()) {
+        std::cerr << "无法打开文件！" << std::endl;
+        return 角色数组;
+    }
+
+    std::wstring 行;
+    while (std::getline(文件, 行) && 角色数组.size() < 4) { // 最多读取四行
+        std::wistringstream 行流(行);
+        角色配置 角色;
+        int 是否刷完, 正在刷;
+
+        if (行流 >> 角色.名字 >> 角色.等级 >> 是否刷完 >> 正在刷) {
+            角色.是否刷完 = 是否刷完 != 0;
+            角色.正在刷 = 正在刷 != 0;
+            角色数组.push_back(角色);
+        }
+    }
+
+    return 角色数组;
+}
+
+void 写入角色配置(const std::string& 文件名, const std::vector<角色配置>& 角色数组)
+{
+    std::wofstream 文件(文件名);
+    std::locale loc(std::locale::classic(), new std::codecvt_utf8<wchar_t>);
+    文件.imbue(loc);
+
+    if (!文件.is_open()) {
+        std::cerr << "无法打开文件进行写入！" << std::endl;
+        return;
+    }
+
+    for (const auto& 角色 : 角色数组) {
+        文件 << 角色.名字 << L" " << 角色.等级 << L" "
+            << (角色.是否刷完 ? 1 : 0) << L" " << (角色.正在刷 ? 1 : 0) << std::endl;
+    }
 }

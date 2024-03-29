@@ -1,26 +1,195 @@
-﻿  pch.cpp
-  CMainDialogWnd.cpp
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
+﻿  CMainDialogWnd.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2039: "filesystem": 不是 "std" 的成员
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  参见“std”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2878: “filesystem”: 该名称的命名空间或类不存在
+  (编译源文件“/CMainDialogWnd.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
   (编译源文件“/CMainDialogWnd.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
   参见“CDialogEx”的声明
-  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,18):
+  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,18):
   参见“CMainDialogWnd”的声明
   
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\识字类.h(2,10): error C1083: 无法打开包括文件: “libop.h”: No such file or directory
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(76,8): warning C4251: “CMainDialogWnd::tb_recValuex1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(77,8): warning C4251: “CMainDialogWnd::tb_recValuey1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(78,8): warning C4251: “CMainDialogWnd::tb_recValuex2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(79,8): warning C4251: “CMainDialogWnd::tb_recValuey2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(80,8): warning C4251: “CMainDialogWnd::字符输出框”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(82,8): warning C4251: “CMainDialogWnd::相似度”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/CMainDialogWnd.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.cpp(88,9): error C2653: “fs”: 不是类或命名空间名称
+  (编译源文件“/CMainDialogWnd.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.cpp(88,20): error C2065: “文件名”: 未声明的标识符
+  (编译源文件“/CMainDialogWnd.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.cpp(88,13): error C3861: “exists”: 找不到标识符
+  (编译源文件“/CMainDialogWnd.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.cpp(91,28): error C2065: “文件名”: 未声明的标识符
+  (编译源文件“/CMainDialogWnd.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.cpp(104,28): error C2065: “文件名”: 未声明的标识符
   (编译源文件“/CMainDialogWnd.cpp”)
   
   ML.cpp
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2039: "filesystem": 不是 "std" 的成员
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  参见“std”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2878: “filesystem”: 该名称的命名空间或类不存在
+  (编译源文件“/ML.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
   (编译源文件“/ML.cpp”)
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
   参见“CDialogEx”的声明
-  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(14,18):
+  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,18):
   参见“CMainDialogWnd”的声明
   
-  识图类.cpp
-  识字类.cpp
-C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\识字类.h(2,10): error C1083: 无法打开包括文件: “libop.h”: No such file or directory
-  (编译源文件“/识字类.cpp”)
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(76,8): warning C4251: “CMainDialogWnd::tb_recValuex1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
   
-  键鼠类.cpp
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(77,8): warning C4251: “CMainDialogWnd::tb_recValuey1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(78,8): warning C4251: “CMainDialogWnd::tb_recValuex2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(79,8): warning C4251: “CMainDialogWnd::tb_recValuey2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(80,8): warning C4251: “CMainDialogWnd::字符输出框”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(82,8): warning C4251: “CMainDialogWnd::相似度”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/ML.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+  函数功能类.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2039: "filesystem": 不是 "std" 的成员
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\sstream(19,1):
+  参见“std”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(30,21): error C2878: “filesystem”: 该名称的命名空间或类不存在
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,42): warning C4275: 非 dll 接口 class“CDialogEx”用作 dll 接口 class“CMainDialogWnd”的基
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxdialogex.h(27,7):
+  参见“CDialogEx”的声明
+  C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(32,18):
+  参见“CMainDialogWnd”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(76,8): warning C4251: “CMainDialogWnd::tb_recValuex1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(77,8): warning C4251: “CMainDialogWnd::tb_recValuey1”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(78,8): warning C4251: “CMainDialogWnd::tb_recValuex2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(79,8): warning C4251: “CMainDialogWnd::tb_recValuey2”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(80,8): warning C4251: “CMainDialogWnd::字符输出框”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\CMainDialogWnd.h(82,8): warning C4251: “CMainDialogWnd::相似度”: class“CEdit”需要有 dll 接口由 class“CMainDialogWnd”的客户端使用 
+  (编译源文件“/函数功能类.cpp”)
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin.h(3829,7):
+  参见“CEdit”的声明
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(71,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(75,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(152,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(156,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(384,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(389,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(463,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(548,21): warning C4244: “初始化”: 从“ULONGLONG”转换到“DWORD”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(558,37): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(1046,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(1050,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(1195,25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
+C:\Users\Administrator\Desktop\文件\代码类\NightCrows_vs\启动器\ML\函数功能类.cpp(1199,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“/函数功能类.cpp”)
+  
